@@ -16,6 +16,7 @@ export function SideBar({ genres, handleClickButton, selectedGenreId }: SideBarP
       <div className="buttons-container">
         {genres.map(genre => (
           <Button
+            key={genre.id}
             id={String(genre.id)}
             title={genre.title}
             iconName={genre.name}
