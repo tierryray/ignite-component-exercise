@@ -3,8 +3,8 @@ import { GenreResponseProps, MovieProps } from '../App'
 import { MovieCard } from './MovieCard'
 
 interface ContentProps {
-  selectedGenre: GenreResponseProps,
-  movies: MovieProps[]
+  selectedGenre: GenreResponseProps;
+  movies: MovieProps[];
 };
 
 export function Content({ selectedGenre, movies }: ContentProps) {

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { Button } from './components/Button';
 import { Content } from './components/Content';
 import { MovieCard } from './components/MovieCard';
+import { SideBar } from './components/SideBar';
 import { api } from './services/api';
 
 // import { SideBar } from './components/SideBar';
@@ -61,22 +62,7 @@ export function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <nav className="sidebar">
-        <span>Watch<p>Me</p></span>
-
-        <div className="buttons-container">
-          {genres.map(genre => (
-            <Button
-              id={String(genre.id)}
-              title={genre.title}
-              iconName={genre.name}
-              onClick={() => handleClickButton(genre.id)}
-              selected={selectedGenreId === genre.id}
-            />
-          ))}
-        </div>
-
-      </nav>
+      <SideBar genres={genres} selectedGenreId={selectedGenreId} handleClickButton={handleClickButton} />
 
       <Content selectedGenre={selectedGenre} movies={movies} />
     </div>
