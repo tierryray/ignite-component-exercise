@@ -1,25 +1,27 @@
+import './styles/global.scss';
+import './styles/sidebar.scss';
+import './styles/content.scss';
+
 import { useEffect, useState } from 'react';
 
 import { Button } from './components/Button';
+import { Content } from './components/Content';
 import { MovieCard } from './components/MovieCard';
+import { api } from './services/api';
 
 // import { SideBar } from './components/SideBar';
 // import { Content } from './components/Content';
 
-import { api } from './services/api';
 
-import './styles/global.scss';
 
-import './styles/sidebar.scss';
-import './styles/content.scss';
 
-interface GenreResponseProps {
+export interface GenreResponseProps {
   id: number;
   name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
   title: string;
 }
 
-interface MovieProps {
+export interface MovieProps {
   Title: string;
   Poster: string;
   Ratings: Array<{
@@ -76,19 +78,7 @@ export function App() {
 
       </nav>
 
-      <div className="container">
-        <header>
-          <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
-        </header>
-
-        <main>
-          <div className="movies-list">
-            {movies.map(movie => (
-              <MovieCard title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
-            ))}
-          </div>
-        </main>
-      </div>
+      <Content selectedGenre={selectedGenre} movies={movies} />
     </div>
   )
 }
